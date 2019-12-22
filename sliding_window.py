@@ -50,9 +50,9 @@ def min_sublist_sum(lst, num):
     min_len = None
     left_index = 0
     right_index = 0
-    print('\n')
-    print('list:', lst, 'threshold:', num)
-    print('\n')
+    # print('\n')
+    # print('list:', lst, 'threshold:', num)
+    # print('\n')
     i = 1
     
     while left_index < len(lst):
@@ -79,11 +79,28 @@ def min_sublist_sum(lst, num):
         else:
             break
                
-        print('step', i, 'left_index:', left_index, 'right_index:',right_index, 'current_sum:', current_sum,  'min_len:', min_len)
+        # print('step', i, 'left_index:', left_index, 'right_index:',right_index, 'current_sum:', current_sum,  'min_len:', min_len)
         i += 1
-    print('Final min_len:', min_len)
+    # print('Final min_len:', min_len)
     
-    return min_len if min_len else 0 
+    return min_len if min_len else 0
+
+
+def find_longest_substring(string):
+    """Function accepts a string and returns the length 
+    of the longest substring with all distinct characters.
+    """
+    i=0
+    
+    if len(string) == 0:
+        return 0
+    
+    for j in range(1, len(string)):
+        if string[j] != string[i]:
+            i += 1
+        else:
+            return i
+     
             
 
 # test func
@@ -106,6 +123,17 @@ class TestMaxSubList(unittest.TestCase):
         self.assertEqual(min_sublist_sum([4,3,3,8,1,2,3], 11), 2)
         self.assertEqual(min_sublist_sum([1,4,16,22,5,7,8,9,10], 95), 0)
         self.assertEqual(min_sublist_sum([], 1), 0)
+        
+    def test_longest_substring(self):
+        self.assertEqual(find_longest_substring(''), 0)
+        self.assertEqual(find_longest_substring('rithmschool'), 7)
+        self.assertEqual(find_longest_substring('thisisawesome'), 6)
+        self.assertEqual(find_longest_substring('thecatinthehat'), 7)
+        self.assertEqual(find_longest_substring('bbbbbb'), 1)
+        self.assertEqual(find_longest_substring('longestsubstring'), 8)
+        self.assertEqual(find_longest_substring('thisishowwedoit'), 6)
+        # self.assertEqual(find_longest_substring())
+        
                          
                          
 if __name__ == '__main__':

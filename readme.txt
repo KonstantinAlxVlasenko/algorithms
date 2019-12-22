@@ -9,7 +9,7 @@ Output is true or false.
 Function same_frequency to check if given two positive integers have the same frequency of digits. O(n)
 
 
-2. File unique_values.py. Multiple pointers pattern.
+2. File multiple_pointers.py. Multiple pointers pattern.
 Function unique_values which accepts an list with integers and counts unique values in the array. O(n)
 
 Function average_pair determines if there is a pair of values in the list of integers 
@@ -28,9 +28,9 @@ In other words, the function checks whether the characters in the first string
 appear somewhere in the second string without their order changing. 0(n)
 
 
-3. File max_sum.py. Sliding window pattern. O(n)
+3. File sliding_window.py. Sliding window pattern. 
 Function max_sum to calculate the maximum sum of n consecutive elements in the list
-Function accepts list of integers and number of required consecutive elements
+Function accepts list of integers and number of required consecutive elements. O(n)
 
 Function min_sublist_sum accepts two parameters - an array of positive integers and a positive integer. 
 This function returns the minimal length of a contiguous subarray 
