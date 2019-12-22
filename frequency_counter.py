@@ -1,4 +1,4 @@
-
+"""Module Frequency counter pattern"""
 
 import unittest
 
@@ -9,7 +9,7 @@ def valid_anagram(str1: str, str2: str):
     Output is true or false.
     """
 
-    # check if both parametsr are strings
+    # check if both parameters are strings
     if not isinstance(str1, str) or not isinstance(str2, str):
         return False
     # return False if strings lengths are different 
@@ -48,7 +48,8 @@ def split_integer(num: int, lst=None):
 
  
 def same_frequency(num1: int, num2: int):
-    """Function to check if given two positive integers have the same frequency of digits."""
+    """Function to check if given two positive integers have the same frequency of digits.
+    Returns True or False"""
 
     # check if both parametsr are integers
     if not isinstance(num1, int) or not isinstance(num2, int):
