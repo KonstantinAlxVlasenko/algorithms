@@ -38,23 +38,6 @@ def max_sub_list(lst, n):
     return max_sub_sum
 
 
-# def max_subarray_sum(lst, num):
-#     """
-#     Given an array of integers and a number. 
-#     Function finds the maximum sum of a subarray 
-#     with the length of the number passed to the function. 
-#     Subarray consist of consecutive elements from the original array. 
-#     """
-    
-#     # check if all elements of the not null list are integers
-#     if len(lst) != 0 and not all([isinstance(element, int) for element in lst]):
-#         return 'List has to contain integers only'
-#     # return None if n is not in permitted limit
-#     if n < 1 or n > len(lst):
-#         return None
-#     pass
-
-
 def min_sublist_sum(lst, num):
     """
     Function accepts two parameters - an array of positive integers and a positive integer. 
