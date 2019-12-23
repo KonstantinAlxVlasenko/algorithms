@@ -19,7 +19,6 @@ def max_sub_list(lst, n):
     if n < 1 or n > len(lst):
         return None
 
-    print('\nlist:', lst, '\nn:', n)
     # calculate sum of first n elements
     current_sub_sum = sum(lst[:n])
     # initial maximum sum of n elements 
@@ -33,7 +32,6 @@ def max_sub_list(lst, n):
         # check if calculated sum is greater than maximum sum 
         if current_sub_sum > max_sub_sum:
             max_sub_sum = current_sub_sum
-    print('max_sum:', max_sub_sum)
 
     return max_sub_sum
 
@@ -50,9 +48,6 @@ def min_sublist_sum(lst, num):
     min_len = None
     left_index = 0
     right_index = 0
-    # print('\n')
-    # print('list:', lst, 'threshold:', num)
-    # print('\n')
     i = 1
     
     while left_index < len(lst):
@@ -79,9 +74,7 @@ def min_sublist_sum(lst, num):
         else:
             break
                
-        # print('step', i, 'left_index:', left_index, 'right_index:',right_index, 'current_sum:', current_sum,  'min_len:', min_len)
         i += 1
-    # print('Final min_len:', min_len)
     
     return min_len if min_len else 0
 
@@ -90,16 +83,56 @@ def find_longest_substring(string):
     """Function accepts a string and returns the length 
     of the longest substring with all distinct characters.
     """
-    i=0
+    # unique substring start index
+    start_index = 0
+    # longest unique substring length
+    longest_len = 0
+    # dictionary to store string chars indexes
+    # if during looping over string chars met more then once value is ovwerritten
+    char_index_dct = {}
     
-    if len(string) == 0:
-        return 0
+    for char_index in range(len(string)):
+        # current char in string
+        char = string[char_index]
+        
+        if not char in char_index_dct:
+            char_index_dct[char] = char_index
+            # if char is last in the string and it's not duplicate
+            # then calculate length of unique substring including last char
+            if char_index == len(string) - 1:
+                longest_len = max(longest_len, char_index - start_index + 1)
+                
+        # if char have been met already in string  
+        else:           
+            # if char is in dictionary check if start_index is less or equal than previous index 
+            # of duplicated char. string is cut after previos index of duplicated char
+            if start_index <= char_index_dct[char]:
+                # calculate current unique substring lenghth and choose maximum
+                longest_len = max(longest_len, char_index - start_index)
+                # shift start index after index of duplicated char (cut the string)
+                start_index = char_index_dct[char] + 1
+                # ovwerrite char index with new value
+                char_index_dct[char] = char_index
+                
+                # if char is last in the string calculate length of unique substring
+                # including last char after start_index was shifted
+                if char_index == len(string) - 1:
+                    # calculate current unique substring lenghth and choose maximum
+                    longest_len = max(longest_len, char_index - start_index + 1)
+                               
+            # if char is in dictionary but start_index is greater than 
+            # previous index of duplicated char then update char index only
+            else:                   
+                char_index_dct[char] = char_index
+                # if char is last in the string calculate length of unique substring including last char
+                if char_index == len(string) - 1:                   
+                    # calculate current unique substring lenghth and choose maximum
+                    longest_len = max(longest_len, char_index - start_index + 1)
+                                    
+    return longest_len
+                
     
-    for j in range(1, len(string)):
-        if string[j] != string[i]:
-            i += 1
-        else:
-            return i
+        
      
             
 
@@ -132,7 +165,7 @@ class TestMaxSubList(unittest.TestCase):
         self.assertEqual(find_longest_substring('bbbbbb'), 1)
         self.assertEqual(find_longest_substring('longestsubstring'), 8)
         self.assertEqual(find_longest_substring('thisishowwedoit'), 6)
-        # self.assertEqual(find_longest_substring())
+        self.assertEqual(find_longest_substring('abcdefgh'), 8)
         
                          
                          
