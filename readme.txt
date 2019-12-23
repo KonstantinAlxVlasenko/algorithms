@@ -36,3 +36,6 @@ Function min_sublist_sum accepts two parameters - an array of positive integers 
 This function returns the minimal length of a contiguous subarray 
 of which the sum is greater than or equal to the integer passed to the function. 
 If there isn't one, returns 0 instead. O(n)
+
+Function find_longest_substring accepts a string and returns the length of the longest 
+substring with all distinct characters.. O(n)
