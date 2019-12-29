@@ -1,5 +1,6 @@
 Repository contains Python scripts for Algorithms and Data structures training
 
+
 1. File frequency_counter.py. Frequency counter pattern.
 Function valid_anagram to determine if two given strings are anagram. O(n)
 Anagram is a word, phrase, or name formed by rearranging the letters of another.
@@ -39,3 +40,49 @@ If there isn't one, returns 0 instead. O(n)
 
 Function find_longest_substring accepts a string and returns the length of the longest 
 substring with all distinct characters.. O(n)
+
+
+4. File recursion.py. Recursion pattern.
+
+Functions factorial returns num factorial
+
+Function filter_odd takes list of integers and returns list of odd numbers
+
+Function power accepts a base and an exponent. 
+The function returns the power of the base to the exponent.
+
+Function list_product takes list of numbers and returns the product of them all.
+
+Function recursive_range accepts a number and adds up all the numbers 
+from 0 to the number passed to the function
+
+Functions fib accepts a number and returns the number in the Fibonacci sequence. 
+Recall that the Fibonacci sequence is the sequence of whole numbers 0, 1, 1, 2, 3, 5, 8, ... 
+which starts with 1 and 1, and where every number thereafter is equal to the sum of the previous two numbers.
+
+
+5. File recursion_add.py. Additional recursion pattern.
+
+Function reverse accepts a string and returns a new string in reverse
+
+Recursive function palindrome returns true if the string passed to it is a palindrome 
+(reads the same forward and backward). Otherwise it returns false.
+
+Function flatten accepts a list of lists and returns a new list with all values flattened.
+
+Given an array of strings. Function capitalize_first capitalizes the first letter 
+of each string in the array.
+
+Function nested_even_sum returns the sum of all even numbers in a dictionary 
+which may contain nested dictionaries.
+    
+
+Function nums_to_string takes in a dictionary and finds all of the values 
+which are numbers and converts them to strings
+
+Function collect_strings accepts a dictionary and returns a list of all the values 
+in the dictionary that have a type of string
+ 
+
+            
+    

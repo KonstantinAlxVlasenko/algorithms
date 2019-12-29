@@ -54,6 +54,32 @@ def recursive_range(num):
         return 0
     
     return num + recursive_range(num -1)
+
+
+
+def fib(num, fib_cache = {0: 0, 1: 1}):
+    """Functions accepts a number and returns the number in the Fibonacci sequence. 
+    Recall that the Fibonacci sequence is the sequence of whole numbers 0, 1, 1, 2, 3, 5, 8, ... 
+    which starts with 1 and 1, and where every number thereafter is equal to the sum of the previous two numbers.
+    """
+    
+    # if num is in fibonacce cache 
+    if num in fib_cache:
+        return fib_cache[num]
+    
+    """
+    recursive fn call
+    fib_cache passed as parameter to avoid duplicate fib fn call with numbers
+    have been already calculated
+    """
+    res = fib(num-1, fib_cache) + fib(num-2, fib_cache)
+    # fib_cache filled with calculated Fibonacci seq members
+    # after reach base values
+    fib_cache[num] = res  
+
+    return res
+
+    
        
 class TestRecursion(unittest.TestCase):
 
@@ -83,6 +109,14 @@ class TestRecursion(unittest.TestCase):
     def test_recursive_range(self):
         self.assertEqual(recursive_range(6), 21)
         self.assertEqual(recursive_range(10), 55)
+        
+    def test_fib(self):
+        self.assertEqual(fib(0), 0)
+        self.assertEqual(fib(1), 1)
+        self.assertEqual(fib(4), 3)
+        self.assertEqual(fib(10), 55)
+        self.assertEqual(fib(28), 317811)
+        self.assertEqual(fib(35), 9227465)
 
 if __name__ == '__main__':
     unittest.main()
