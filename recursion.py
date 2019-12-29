@@ -58,7 +58,8 @@ def recursive_range(num):
 
 
 def fib(num, fib_cache = {0: 0, 1: 1}):
-    """Functions accepts a number and returns the number in the Fibonacci sequence. 
+    """
+    Functions accepts a number and returns the number in the Fibonacci sequence. 
     Recall that the Fibonacci sequence is the sequence of whole numbers 0, 1, 1, 2, 3, 5, 8, ... 
     which starts with 1 and 1, and where every number thereafter is equal to the sum of the previous two numbers.
     """
