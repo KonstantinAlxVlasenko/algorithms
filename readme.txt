@@ -2,6 +2,7 @@ Repository contains Python scripts for Algorithms and Data structures training
 
 
 1. File frequency_counter.py. Frequency counter pattern.
+
 Function valid_anagram to determine if two given strings are anagram. O(n)
 Anagram is a word, phrase, or name formed by rearranging the letters of another.
 Second string is anagram to the first one (such as cinema and iceman).
@@ -11,6 +12,7 @@ Function same_frequency to check if given two positive integers have the same fr
 
 
 2. File multiple_pointers.py. Multiple pointers pattern.
+
 Function unique_values which accepts an list with integers and counts unique values in the array. O(n)
 
 Function average_pair determines if there is a pair of values in the list of integers 
@@ -30,6 +32,7 @@ appear somewhere in the second string without their order changing. 0(n)
 
 
 3. File sliding_window.py. Sliding window pattern. 
+
 Function max_sum to calculate the maximum sum of n consecutive elements in the list
 Function accepts list of integers and number of required consecutive elements. O(n)
 
@@ -82,6 +85,28 @@ which are numbers and converts them to strings
 
 Function collect_strings accepts a dictionary and returns a list of all the values 
 in the dictionary that have a type of string
+
+
+6. File searching_algorithms.py. Searching algorithms patterns
+
+Function linear_search accepts a list and a value, 
+and returns the index at which the value exists. 
+If the value does not exist in the list, return -1.
+O(n)
+
+Function binary_search accepts a sorted list and a value 
+and returns the index at which the value exists. 
+Otherwise, return -1. O(log n)    
+
+Function naive_string_searchtakes two strings and 
+checks how many times repeats smaller inside the bigger.
+O(n^2)
+         
+Function kmp_string_search takes two strings and checks 
+how many times repeats smaller inside the bigger. 
+Knuth–Morris–Pratt(KMP) Pattern Matching(Substring search) 
+algorithm applied. O(n)
+https://www.youtube.com/watch?v=GTJr8OvyEVQ 
  
 
             
