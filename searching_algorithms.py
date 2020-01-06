@@ -104,6 +104,7 @@ def create_prefix_lst(string):
             
     return prefix_lst
             
+            
 def kmp_string_search(string1, string2):
     """Function takes two strings and checks how many times repeats
     smaller inside the bigger. 

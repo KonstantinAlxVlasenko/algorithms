@@ -139,7 +139,6 @@ def is_subsequence(str1, str2):
             # if not than shift index right
             else:
                 str1_index += 1
-
             
     return False     
     
