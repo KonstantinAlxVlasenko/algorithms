@@ -155,6 +155,66 @@ def merge_sort(lst):
     return merge(left, right)
 
 
+def pivot(lst, start, end):
+    """
+    Auxiliary function for _quick_sort function. It takes list of nums, start and end
+    indexes as arguments. Function puts pivot element with index defined by start parameter
+    and puts it on the correct position in the list between start and end indexes.
+    All nums less then pivot element moved to the left side from pivot element and 
+    all nums greater than pivot element moved to right side from pivot element.
+    Function returns updated pivot_index
+    """
+    
+    # pivot_index reflects how many elemnts in the list
+    # in the index range from start to end is less the pivot element
+    pivot_index = start    
+    pivot = lst[start]
+    
+    for i in range(start + 1, end + 1):
+        # if current element is less then pivot
+        if lst[i] < pivot:
+            pivot_index += 1
+            # exchange positions of current element less than pivot 
+            # and first element greater than pivot
+            lst[i], lst[pivot_index] = lst[pivot_index], lst[i]
+
+    # after all elelemnts from start to the end indexes have been checked 
+    # and all elements less then pivot was moved to the positions after
+    # pivot than pivot element and last element less then pivot exchange positions
+    # thus pivot element takes correct pisition 
+    lst[start], lst[pivot_index] = lst[pivot_index], lst[start]
+
+    return pivot_index
+
+def _quick_sort(lst, left, right):
+    """
+    Quck sort algorithm function for recursive call with left and right parameters
+    show which part of list is checked 
+    """
+    print('\n')
+    if left < right:
+        # calculate pivot_index of left element in the list 
+        pivot_index = pivot(lst, left, right)
+        # recursively call _quick_sort function but to check list elements
+        # are on the left from pivit-index
+        _quick_sort(lst, left, pivot_index - 1)
+        # recursively call _quick_sort function but to check list elements
+        # are on the right from pivit-index
+        _quick_sort(lst, pivot_index + 1, right)
+    return lst
+
+
+def quick_sort(lst):
+    """
+    QuickSort is a Divide and Conquer algorithm. It picks an element as pivot 
+    and partitions the given array around the picked pivot. Function takes list
+    as parameter only. Then call _quick_sort function with additional left and right
+    indexes parameters. At first call left and right indexes are first and last
+    list indexes   
+    """
+    return _quick_sort(lst, 0, len(lst) - 1)
+
+
 class TestSortingAlgorithms(unittest.TestCase):
     
     def test_bubble_sort(self):
@@ -178,6 +238,12 @@ class TestSortingAlgorithms(unittest.TestCase):
         self.assertEqual(merge_sort([5,4,3,2,1,0]), [0, 1, 2, 3, 4, 5])
         self.assertEqual(merge_sort([-5,4,-3,2,-1,0]), [-5, -3, -1, 0, 2, 4])
         self.assertEqual(merge_sort([5,4,5,3,2,2,1,0]), [0, 1, 2, 2,3, 4, 5, 5])
+
+    def test_quick_sort(self):
+        self.assertEqual(quick_sort([45, 67, 23, 78, 32, 31, 69]), [23, 31, 32, 45, 67, 69, 78])
+        self.assertEqual(quick_sort([5,4,3,2,1,0]), [0, 1, 2, 3, 4, 5])
+        self.assertEqual(quick_sort([-5,4,-3,2,-1,0]), [-5, -3, -1, 0, 2, 4])
+        self.assertEqual(quick_sort([5,4,5,3,2,2,1,0]), [0, 1, 2, 2,3, 4, 5, 5])
 
 if __name__ == '__main__':
     unittest.main()
