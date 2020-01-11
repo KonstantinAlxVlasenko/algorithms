@@ -3,6 +3,7 @@
 import unittest
 import math
 
+
 def bubble_sort(lst):
     """
     Optimized Bubble sort algorithm implentation.
@@ -187,6 +188,7 @@ def pivot(lst, start, end):
 
     return pivot_index
 
+
 def _quick_sort(lst, left, right):
     """
     Quck sort algorithm function for recursive call with left and right parameters
@@ -225,6 +227,7 @@ def get_digit(num, i):
     
     return math.floor(abs(num) / 10**i) % 10
 
+
 def digit_count(num):
     """
     Auxiliary function for radix_sort function.
@@ -234,6 +237,7 @@ def digit_count(num):
     if num == 0:
         return 1
     return math.floor(math.log10(abs(num))) + 1
+
 
 def most_digits(nums):
     """
@@ -246,6 +250,7 @@ def most_digits(nums):
     for num in nums:
         max_digits = max(max_digits, digit_count(num))
     return max_digits
+
 
 def radix_sort(nums):
     """
