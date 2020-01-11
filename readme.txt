@@ -136,7 +136,23 @@ It works on the principle of Divide and Conquer. Merge sort repeatedly breaks do
 a list into several sublists until each sublist consists of a single element 
 and merging those sublists in a manner that results into a sorted list.
 Merge sort approach is the methodology which uses recursion mechanism. O(nlogn)
- 
 
+Quick sorting algorithm implementation.
+Function quick_sort.
+QuickSort is a Divide and Conquer algorithm. It picks an element as pivot 
+and partitions the given array around the picked pivot. Function takes list
+as parameter only. Then call _quick_sort function with additional left and right
+indexes parameters. At first call left and right indexes are first and last
+list indexes. O(nlogn)
+
+Radix sorting algorithm implementation.
+Function radix_sort.
+Radix sort is a non-comparative sorting algorithm. 
+It avoids comparison by creating and distributing elements into buckets 
+according to their radix. For elements with more than one significant digit, 
+this bucketing process is repeated for each digit, while preserving the ordering 
+of the prior step, until all digits have been considered.
+Function takes list of pisitive numbers as a parameter and returns sorted list. O(n*k)
+n - length of the list, k - number of digits in the largest num 
             
     

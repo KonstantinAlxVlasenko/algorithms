@@ -1,6 +1,7 @@
 """Module Sorting algorithms"""
 
 import unittest
+import math
 
 def bubble_sort(lst):
     """
@@ -215,6 +216,66 @@ def quick_sort(lst):
     return _quick_sort(lst, 0, len(lst) - 1)
 
 
+def get_digit(num, i):
+    """
+    Auxiliary function for radix_sort function.
+    Returns the digit in the num at given i place value
+    0 starts at the end of num
+    """
+    
+    return math.floor(abs(num) / 10**i) % 10
+
+def digit_count(num):
+    """
+    Auxiliary function for radix_sort function.
+    Returns the number of digits in the num
+    """
+    
+    if num == 0:
+        return 1
+    return math.floor(math.log10(abs(num))) + 1
+
+def most_digits(nums):
+    """
+    Auxiliary function for radix_sort function.
+    Given a list of numbers, returns the number of digits 
+    in the largest numvers in the list
+    """
+    
+    max_digits = 0
+    for num in nums:
+        max_digits = max(max_digits, digit_count(num))
+    return max_digits
+
+def radix_sort(nums):
+    """
+    Radix sort is a non-comparative sorting algorithm. 
+    It avoids comparison by creating and distributing elements into buckets 
+    according to their radix. For elements with more than one significant digit, 
+    this bucketing process is repeated for each digit, while preserving the ordering 
+    of the prior step, until all digits have been considered.
+    Function takes list of pisitive numbers as a parameter and returns sorted list 
+    """
+
+    max_digits_num = most_digits(nums)
+    
+    for i in range(max_digits_num):
+        # create dictionary of empty lists
+        digits_dct = dict((key, []) for key in range(10))
+        for num in nums:
+            # digit with i index in the num
+            digit = get_digit(num, i)
+            digits_dct[digit].append(num)
+        # redistribute numbers in the list
+        nums = []
+        for key in range(10):
+            # add nums from the bucket to the nums list
+            if digits_dct.get(key):
+                nums.extend(digits_dct.get(key))
+
+    return nums
+
+
 class TestSortingAlgorithms(unittest.TestCase):
     
     def test_bubble_sort(self):
@@ -244,6 +305,11 @@ class TestSortingAlgorithms(unittest.TestCase):
         self.assertEqual(quick_sort([5,4,3,2,1,0]), [0, 1, 2, 3, 4, 5])
         self.assertEqual(quick_sort([-5,4,-3,2,-1,0]), [-5, -3, -1, 0, 2, 4])
         self.assertEqual(quick_sort([5,4,5,3,2,2,1,0]), [0, 1, 2, 2,3, 4, 5, 5])
+        
+    def test_radix_sort(self):
+        self.assertEqual(radix_sort([45, 67, 23, 78, 32, 31, 69]), [23, 31, 32, 45, 67, 69, 78])
+        self.assertEqual(radix_sort([5,4,3,2,1,0]), [0, 1, 2, 3, 4, 5])
+        self.assertEqual(radix_sort([5,4,5,3,2,2,1,0]), [0, 1, 2, 2,3, 4, 5, 5])
 
 if __name__ == '__main__':
     unittest.main()

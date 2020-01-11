@@ -76,78 +76,78 @@
         
 # print(merge_sort([45, 67, 1, 3,89, 65, 92, 101, 8]))
 
-def pivot(lst, start, end):
-    """
-    Auxiliary function for _quick_sort function. It takes list of nums, start and end
-    indexes as arguments. Function puts pivot element with index defined by start parameter
-    and puts it on the correct position in the list between start and end indexes.
-    All nums less then pivot element moved to the left side from pivot element and 
-    all nums greater than pivot element moved to right side from pivot element.
-    Function returns updated pivot_index
-    """
-    # print(lst)
+# def pivot(lst, start, end):
+#     """
+#     Auxiliary function for _quick_sort function. It takes list of nums, start and end
+#     indexes as arguments. Function puts pivot element with index defined by start parameter
+#     and puts it on the correct position in the list between start and end indexes.
+#     All nums less then pivot element moved to the left side from pivot element and 
+#     all nums greater than pivot element moved to right side from pivot element.
+#     Function returns updated pivot_index
+#     """
+#     # print(lst)
     
-    # pivot_index reflects how many elemnts in the list
-    # in the index range from start to end is less the pivot element
-    pivot_index = start    
-    pivot = lst[start]
+#     # pivot_index reflects how many elemnts in the list
+#     # in the index range from start to end is less the pivot element
+#     pivot_index = start    
+#     pivot = lst[start]
     
-    for i in range(start + 1, end + 1):
-        # print('i:', i, end=' ')
+#     for i in range(start + 1, end + 1):
+#         # print('i:', i, end=' ')
 
-        # if current element is less then pivot
-        if lst[i] < pivot:
-            pivot_index += 1
-            # exchange positions of current element less than pivot 
-            # and first element greater than pivot
-            lst[i], lst[pivot_index] = lst[pivot_index], lst[i]
-            # print(lst, pivot_index)
-        # else:
-            # print('')
+#         # if current element is less then pivot
+#         if lst[i] < pivot:
+#             pivot_index += 1
+#             # exchange positions of current element less than pivot 
+#             # and first element greater than pivot
+#             lst[i], lst[pivot_index] = lst[pivot_index], lst[i]
+#             # print(lst, pivot_index)
+#         # else:
+#             # print('')
 
-    # after all elelemnts from start to the end indexes have been checked 
-    # and all elements less then pivot was moved to the positions after
-    # pivot than pivot element and last element less then pivot exchange positions
-    # thus pivot element takes correct pisition 
-    lst[start], lst[pivot_index] = lst[pivot_index], lst[start]
+#     # after all elelemnts from start to the end indexes have been checked 
+#     # and all elements less then pivot was moved to the positions after
+#     # pivot than pivot element and last element less then pivot exchange positions
+#     # thus pivot element takes correct pisition 
+#     lst[start], lst[pivot_index] = lst[pivot_index], lst[start]
     
-    # print(lst)
+#     # print(lst)
     
-    return pivot_index
+#     return pivot_index
 
-def _quick_sort(lst, left, right):
-    """
-    Quck sort algorithm function for recursive call with left and right parameters
-    show which part of list is checked 
-    """
-    print('\n')
-    # print(lst, 'left:', left, 'right:', right, 'number', lst[left])
-    if left < right:
-        # calculate pivot_index of left element in the list 
-        pivot_index = pivot(lst, left, right)
-        print('pivot_index:', pivot_index)
-        print('call left:', lst, 'left:', left, 'right:', pivot_index - 1)
-        # recursively call _quick_sort function but to check list elements
-        # are on the left from pivit-index
-        _quick_sort(lst, left, pivot_index - 1)
-        print('recursive left return:', lst, '\n')
-        print('call right:', lst, 'left:', pivot_index + 1, 'right:', right)
-        # recursively call _quick_sort function but to check list elements
-        # are on the right from pivit-index
-        _quick_sort(lst, pivot_index + 1, right)
-        print('recursive right return:', lst, '\n')
-    return lst
+# def _quick_sort(lst, left, right):
+#     """
+#     Quck sort algorithm function for recursive call with left and right parameters
+#     show which part of list is checked 
+#     """
+#     print('\n')
+#     # print(lst, 'left:', left, 'right:', right, 'number', lst[left])
+#     if left < right:
+#         # calculate pivot_index of left element in the list 
+#         pivot_index = pivot(lst, left, right)
+#         print('pivot_index:', pivot_index)
+#         print('call left:', lst, 'left:', left, 'right:', pivot_index - 1)
+#         # recursively call _quick_sort function but to check list elements
+#         # are on the left from pivit-index
+#         _quick_sort(lst, left, pivot_index - 1)
+#         print('recursive left return:', lst, '\n')
+#         print('call right:', lst, 'left:', pivot_index + 1, 'right:', right)
+#         # recursively call _quick_sort function but to check list elements
+#         # are on the right from pivit-index
+#         _quick_sort(lst, pivot_index + 1, right)
+#         print('recursive right return:', lst, '\n')
+#     return lst
 
 
-def quick_sort(lst):
-    """
-    QuickSort is a Divide and Conquer algorithm. It picks an element as pivot 
-    and partitions the given array around the picked pivot. Function takes list
-    as parameter only. Then call _quick_sort function with additional left and right
-    indexes parameters. At first call left and right indexes are first and last
-    list indexes   
-    """
-    return _quick_sort(lst, 0, len(lst) - 1)    
+# def quick_sort(lst):
+#     """
+#     QuickSort is a Divide and Conquer algorithm. It picks an element as pivot 
+#     and partitions the given array around the picked pivot. Function takes list
+#     as parameter only. Then call _quick_sort function with additional left and right
+#     indexes parameters. At first call left and right indexes are first and last
+#     list indexes   
+#     """
+#     return _quick_sort(lst, 0, len(lst) - 1)    
 
 # def partition(xs, start, end):
 #     follower = leader = start
@@ -173,4 +173,71 @@ def quick_sort(lst):
 # print(pivot([28,41,4,11,16,1,40,14,36,37,42,18]))
 # print(quick_sort([4,8,2,1,5,7,6,3]))
 # print(pivot([4,8,2,1,5,7,6,3], 0, 7))
-print(quick_sort([45, 67, 23, 78, 32, 31, 69]))
+# print(quick_sort([45, 67, 23, 78, 32, 31, 69]))
+
+import math
+
+def get_digit(num, i):
+    """
+    Auxiliary function for radix_sort function.
+    Returns the digit in the num at given i place value
+    0 starts at the end of num
+    """
+    return math.floor(abs(num) / 10**i) % 10
+
+def digit_count(num):
+    """
+    Auxiliary function for radix_sort function.
+    Returns the number of digits in the num
+    """
+    if num == 0:
+        return 1
+    
+    return math.floor(math.log10(abs(num))) + 1
+
+def most_digits(nums):
+    """
+    Auxiliary function for radix_sort function.
+    Given a list of numbers, returns the number of digits 
+    in the largest numvers in the list
+    """
+    max_digits = 0
+    for num in nums:
+        max_digits = max(max_digits, digit_count(num))
+        
+    return max_digits
+
+def radix_sort(nums):
+    """
+    Radix sort is a non-comparative sorting algorithm. 
+    It avoids comparison by creating and distributing elements into buckets 
+    according to their radix. For elements with more than one significant digit, 
+    this bucketing process is repeated for each digit, while preserving the ordering 
+    of the prior step, until all digits have been considered.
+    Function takes list of pisitive numbers as a parameter and returns sorted list 
+    """
+    print(nums)
+    max_digits_num = most_digits(nums)
+    
+    for i in range(max_digits_num):
+        print('step:', i)
+        digits_dct = dict((key, []) for key in range(10))
+        for num in nums:
+            digit = get_digit(num, i)
+            digits_dct[digit].append(num)
+        
+        print('digits_dct:', digits_dct)
+        
+        nums = []
+        for key in range(10):
+            if digits_dct.get(key):
+                nums.extend(digits_dct.get(key))
+                
+        print('current nums:', nums)
+                
+    return nums
+            
+
+# print(get_digit(5, 0))
+
+print(radix_sort([345, 6789, 234, 2, 7, 0, 12345, 763]))
