@@ -2,11 +2,13 @@
 
 import unittest
 
+
 def reverse(string):
     """Function accepts a string and returns a new string in reverse."""
     if len(string) == 1:
         return string[0]
     return string[-1] + reverse(string[:-1])
+
 
 def palindrome(string):
     """Recursive function returns true if the string passed to it is a palindrome 
@@ -25,6 +27,7 @@ def palindrome(string):
     # or one char or no char left
     else:
         return palindrome(string[1:-1])
+    
     
 def flatten(lst):
     """Function accepts a list of lists and 
@@ -61,6 +64,7 @@ def capitalize_first(lst):
     res.append(lst[-1].capitalize())
 
     return res
+
 
 def nested_even_sum(dct):
     """Function returns the sum of all even numbers in a dictionary which may contain nested dictionaries."""
@@ -108,6 +112,7 @@ def nums_to_string(dct):
     
     return str_dct
 
+
 def collect_strings(dct):
     """Function accepts a dictionary and returns 
     a list of all the values in the dictionary that have a type of string
@@ -128,7 +133,6 @@ def collect_strings(dct):
                 str_lst.append(value)
                 
     return str_lst    
-
             
     
 class TestRecursion(unittest.TestCase):
