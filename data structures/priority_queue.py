@@ -12,14 +12,14 @@ import matplotlib.pyplot as plt
 
 
 class Node:
-    """PiorityQueue Node"""
+    """PriorityQueue Node"""
     
     def __init__(self, value, priority):
         self.value = value
         self.priority = priority
         
 
-class PiorityQueue:
+class PriorityQueue:
     
     def __init__(self):
         self.values = []
@@ -174,10 +174,13 @@ class PiorityQueue:
         nx.draw(max_graph, with_labels = True)
         plt.show()
         
-        
-er = PiorityQueue()
-queue_lst = [('common cold', 5), ('gunshot wound', 1), ('high fever', 4), ('broken arm', 2), ('glass in foot', 3)]
-for value, priority in queue_lst:
-    er.enqueue(value, priority)
-er.graph()
+def main():        
+    er = PriorityQueue()
+    queue_lst = [('common cold', 5), ('gunshot wound', 1), ('high fever', 4), ('broken arm', 2), ('glass in foot', 3)]
+    for value, priority in queue_lst:
+        er.enqueue(value, priority)
+    er.graph()
+    
+if __name__ == "__main__":
+    main()
 
