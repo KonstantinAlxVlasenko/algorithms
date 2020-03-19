@@ -79,6 +79,15 @@ def fib(num, fib_cache = {0: 0, 1: 1}):
 
     return res
 
+
+def fib_tab(n):
+    if n<=2:
+        return 1
+    fib_nums = [0, 1, 1]
+    for i in range(3, n+1):
+        fib_nums.append(fib_nums[i-1] + fib_nums[i-2])
+        
+    return fib_nums[n]
     
        
 class TestRecursion(unittest.TestCase):

@@ -87,4 +87,17 @@ Function collect_strings accepts a dictionary and returns a list of all the valu
 in the dictionary that have a type of string
 
 
-    
+6. File divide_and_conquer.py. Problem patterns solved by applying Divide and Conquer approach.
+Time complexity O(logN)
+
+Function count_zeroes. Given list of 1s and 0s which has all 1s first followed by all 0s.
+Function returns the number of zeroes in the list. 
+
+Function sorted_freq. Given a sorted list and number.
+Function counts the occurreneces of the number in the list.
+If number is not found returns -1.
+
+Function find_rotated_index. Function accepts a rotated list of sorted numbers and an integer.
+Function returns the index of the integer in the array.
+If the value is not found return -1.
+
