@@ -42,7 +42,6 @@ def sorted_freq(lst, num):
     Given a sorted list and number.
     Function counts the occurreneces of the number in the list.
     If number is not found returns -1. Time complexity O(logn) 
-    
     """
     
     # if list empty 
@@ -123,7 +122,7 @@ def _search_idx(lst, num, position = 'start'):
 def find_rotated_index(lst, num):
     """
     Function accepts a rotated list of sorted numbers and an integer.
-    Function returns the index of the integer in the array.
+    Function returns the index of the integer in the list.
     If the value is not found return -1.
     Time Complexity O(logN). Space Coplexity O(1)
     """
@@ -196,7 +195,7 @@ def _rotated_index(lst):
 
 
 # tesing functions above
-class CountUniqueValues(unittest.TestCase):
+class DivideAndConquer(unittest.TestCase):
 
 
     def test_count_zeroes(self):

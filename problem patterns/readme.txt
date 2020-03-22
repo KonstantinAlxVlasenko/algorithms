@@ -98,6 +98,18 @@ Function counts the occurreneces of the number in the list.
 If number is not found returns -1.
 
 Function find_rotated_index. Function accepts a rotated list of sorted numbers and an integer.
-Function returns the index of the integer in the array.
+Function returns the index of the integer in the list.
 If the value is not found return -1.
 
+
+7. File dynamic_programmimg.py. Problem patterns solved by applying Dynamic Programming
+
+Function coin_change_number accepts two parameters: list of denominations and value.
+Function returns the number of ways you can obtain the value from given collection of denominations.
+Figures out the number of ways to make change for a given value from supply of coins.
+Algorithm explanation https://www.youtube.com/watch?v=DJ4a7cmjZY0.
+
+Function min_coin_change accepts list of coins of different denominations and a total amount of money amount. 
+Function computes the fewest number of coins that you need to make up that amount. 
+If that amount of money cannot be made up by any combination of the coins, return -1.
+https://www.youtube.com/watch?v=jgiZlGzXMBw

@@ -1,0 +1,16 @@
+gin clone 'link'
+git status
+git add -A or filename
+git commit -m 'comment'
+git pull
+git push
+
+git config --list
+git help config
+gip config --help
+git reset
+git log
+git branch -a
+git remote -v
+git diff
+git push -u origin calc-divide
