@@ -70,6 +70,22 @@ def min_coin_change(coins, value):
         return min_coins_num[-1]
     else:
         return -1
+    
+
+def min_coins_top_btm(coins, value, cache = []):
+    if not cache:
+        cache = [1 if i in coins else 0 for i in range(value+1)] 
+    min_coins = np.inf
+    if cache[value]:
+        return cache[value]
+    else:
+        for i in [coin for coin in coins if coin <= value]:
+            num_coins = 1 + min_coins_top_btm(coins, value - i, cache)
+            if num_coins < min_coins:
+                min_coins =  num_coins
+                cache[value] = min_coins
+    
+    return min_coins
 
 
 class DynamicProgramming(unittest.TestCase):
@@ -90,6 +106,11 @@ class DynamicProgramming(unittest.TestCase):
     def test_min_coin_change(self):
         self.assertEqual(min_coin_change([1,2,5], 11), 3)
         self.assertEqual(min_coin_change([1,2,5,10], 46), 6)
+        
+        
+    def test_min_coins_top_btm(self):
+        self.assertEqual(min_coins_top_btm([1,2,5], 11), 3)
+        self.assertEqual(min_coins_top_btm([1,2,5,10], 46), 6)
         
 
 if __name__ == '__main__':

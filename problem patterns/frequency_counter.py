@@ -1,6 +1,7 @@
 """Module Frequency counter pattern"""
 
 import unittest
+from collections import Counter
 
 def valid_anagram(str1: str, str2: str):
     """Function to determine if two given strings are anagram.
@@ -72,6 +73,38 @@ def same_frequency(num1: int, num2: int):
     return num1_dct == num2_dct
 
 
+def construct_node(message: str, chars: str):
+    """
+    Function which accepts two strings, a message and some letters. 
+    The function returns True if the message can be built with the letters that is given, 
+    or it returns False.
+    """
+    
+    message_counter = Counter(message)
+    chars_counter = Counter(chars)
+    
+    for char, num in message_counter.items():
+        # the letter has to be in chars with value equal or more than in message 
+        if not (chars_counter.get(char) and chars_counter.get(char) >= num):
+            return False
+    
+    return True
+
+
+def find_duplicates(lst):
+    """
+    Given an list of positive integers, some elements appear twice and others
+    appear once. Find all elements that appear twice in this list.
+    """
+    
+    lst_counter = Counter(lst)
+    duplicate_lst = [number for number, quantity in lst_counter.items() if quantity>1]
+    
+    return sorted(duplicate_lst)
+
+
+
+
 # test valid_anagram function
 class TestAnagram(unittest.TestCase):
 
@@ -96,6 +129,18 @@ class TestAnagram(unittest.TestCase):
         self.assertFalse(same_frequency(34, 14))
         self.assertFalse(same_frequency(22, 222))
         self.assertFalse(same_frequency('22', 222))
+        
+    
+    def test_construct_node(self):
+        self.assertFalse(construct_node('aa', 'abc'))
+        self.assertTrue(construct_node('abc', 'dcba'))
+        self.assertTrue(construct_node('aabbcc', 'bcabcacaddff'))
+        
+    
+    def test_find_duplicates(self):
+        self.assertEqual(find_duplicates([4,3,2,7,8,2,3,1]), [2,3])
+        self.assertEqual(find_duplicates([4,3,2,1,0]), [])
+        self.assertEqual(find_duplicates([4,3,2,1,0,1,2,3]), [1,2,3])
 
 if __name__ == '__main__':
     unittest.main()
